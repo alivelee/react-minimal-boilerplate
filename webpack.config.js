@@ -1,5 +1,8 @@
+const webpack = require('webpack');
+
 module.exports = {
   entry: [
+    'react-hot-loader/patch',
     './src/index.js'
   ],
   output: {
@@ -19,7 +22,11 @@ module.exports = {
   resolve: {
     extensions: ['*', '.js', '.jsx']
   },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin()
+  ],
   devServer: {
-    contentBase: './dist'
+    contentBase: './dist',
+    hot: true
   }
 };
